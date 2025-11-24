@@ -265,3 +265,15 @@ article p {
   transform: scale(1.03);
   box-shadow: 0 0 0 3px var(--accent), 5px 5px 0 0 var(--primary);
 }
+
+/* Corrige contraste do campo de busca no modo escuro */
+body.modo-escuro input {
+  background: #000;
+  color: var(--primary); /* texto digitado visível */
+  border-color: var(--primary);
+}
+
+body.modo-escuro input::placeholder {
+  color: var(--secondary); /* cor visível, mas sutil */
+  opacity: 0.8;
+}
