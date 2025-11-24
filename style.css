@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg: #e3e8f0; /* Azul pastel claro */
+  --primary: #4e8cff; /* Azul vibrante retrô */
+  --secondary: #e85d75; /* Rosa retrô */
+  --accent: #fcd77f; /* Amarelo pastel */
+  --text: #222;
+}
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Press Start 2P", cursive;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  line-height: 1.6;
+  padding-bottom: 4rem;
+}
+
+/* HEADER */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 4px solid var(--secondary);
+  box-shadow: 0 3px 0 var(--accent);
+}
+
+header h1 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px var(--secondary);
+}
+
+header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#modo-noturno {
+  background: var(--accent);
+  border: 2px solid var(--secondary);
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#modo-noturno:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+
+input {
+  border: 2px solid var(--secondary);
+  background: white;
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  width: 20rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+button {
+  background: var(--secondary);
+  color: white;
+  border: 2px solid var(--secondary);
+  font-family: inherit;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+article {
+  border: 3px solid var(--secondary);
+  background: #fff;
+  padding: 1.25rem;
+  box-shadow: 4px 4px 0 var(--primary);
+  transition: 0.2s;
+}
+
+article:hover {
+  box-shadow: 6px 6px 0 var(--accent);
+  transform: translate(-2px, -2px);
+}
+
+article h2 {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+article p {
+  font-size: 0.7rem;
+  color: var(--text);
+}
+
+article p strong {
+  color: var(--secondary);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-top: 3px solid var(--secondary);
+  font-size: 0.6rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links li:hover {
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1rem;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  main {
+    padding: 0 0.5rem;
+  }
+}
+
+/* TEMA ESCURO RETRÔ */
+body.modo-escuro {
+  --bg: #000000;
+  --primary: #00ffff;
+  --secondary: #ff00ff;
+  --accent: #ffff00;
+  --text: #ffffff;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.modo-escuro header {
+  background: var(--bg);
+  border-bottom: 3px solid var(--primary);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+body.modo-escuro article {
+  background: rgba(10, 10, 10, 0.9);
+  border-color: var(--secondary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+body.modo-escuro .footer {
+  background: var(--bg);
+  border-top: 2px solid var(--secondary);
+}
+
+.img-jogo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid var(--secondary);
+  margin-bottom: 0.75rem;
+  background: #fff;
+}
+
+.img-jogo {
+  width: 100%;
+  height: auto; /* altura automática */
+  object-fit: contain; /* mostra a imagem inteira */
+  image-rendering: pixelated;
+  border: 4px solid var(--primary);
+  box-shadow: 0 0 0 3px var(--secondary), 4px 4px 0 0 var(--accent);
+  background-color: #fff;
+  margin-bottom: 0.75rem;
+  transition: 0.2s;
+  display: block;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+  justify-items: center; /* Mantém os cards centralizados */
+}
+
+/* Garante tamanho consistente dos cards */
+.card-container article {
+  max-width: 300px; /* Tamanho fixo para cada "quadradinho" */
+  width: 100%;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinha tudo ao topo */
+  text-align: center;
+  border: 3px solid var(--secondary);
+  background: #fff;
+  padding: 1.25rem;
+  box-shadow: 4px 4px 0 var(--primary);
+  transition: 0.2s;
+  height: auto;
+}
+
+article h2,
+article p {
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.img-jogo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 3px var(--accent), 5px 5px 0 0 var(--primary);
+}

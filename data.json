@@ -1,0 +1,122 @@
+[
+    {
+        "nome": "Super Mario Bros",
+        "data": 1985,
+        "desenvolvedora": "Nintendo",
+        "consoles": "NES",
+        "descricao": "Jogo plataforma",
+        "imagem": "imagens/supermariobros.png"
+    },
+    {
+        "nome": "Super Mario Bros 3",
+        "data": 1988,
+        "desenvolvedora": "Nintendo",
+        "consoles": "NES",
+        "descricao": "Jogo plataforma",
+        "imagem": "imagens/supermariobros3.png"
+    },
+    {
+        "nome": "Contra",
+        "data": 1987,
+        "desenvolvedora": "Konami",
+        "consoles": "Arcade e NES",
+        "descricao": "Jogo plataforma de corrida e tiro",
+        "imagem": "imagens/contra.png"
+    },
+    {
+        "nome": "Bubble Bobble Part 2",
+        "data": 1993,
+        "desenvolvedora": "Taito",
+        "consoles": "NES e Game Boy",
+        "descricao": "Jogo plataforma",
+        "imagem": "imagens/bubblebobblepart2.png"
+    },
+    {
+        "nome": "Pac-Man",
+        "data": 1980,
+        "desenvolvedora": "Namco",
+        "consoles": "Arcade, Atari 2600, NES",
+        "descricao": "Jogo de labirinto",
+        "imagem": "imagens/pacman.png"
+    },
+    {
+        "nome": "Teenage Mutant Ninja Turtles: Tournament Fighters",
+        "data": 1993,
+        "desenvolvedora": "Konami",
+        "consoles": "NES",
+        "descricao": "Jogo de luta",
+        "imagem": "imagens/turtlefighters.png"
+    },
+    {
+        "nome": "Contra Force",
+        "data": 1992,
+        "desenvolvedora": "Konami",
+        "consoles": "NES",
+        "descricao": "Jogo plataforma de corrida e tiro",
+        "imagem": "imagens/contraforce.png"
+    },
+    {
+        "nome": "Jackal",
+        "data": 1986,
+        "desenvolvedora": "Konami",
+        "consoles": "Arcades",
+        "descricao": "Jogo de tiro e corrida com visão aérea",
+        "imagem": "imagens/jackal.png"
+    },
+    {
+        "nome": "Adventure Island",
+        "data": 1986,
+        "desenvolvedora": "Hudson Soft",
+        "consoles": "NES",
+        "descricao": "Jogo de plataforma",
+        "imagem": "imagens/adventureisland.png"
+    },
+    {
+        "nome": "Adventure Island 2",
+        "data": 1991,
+        "desenvolvedora": "Hudson Soft",
+        "consoles": "NES e Game Boy",
+        "descricao": "Jogo de plataforma",
+        "imagem": "imagens/adventureisland2.png"
+    },
+    {
+        "nome": "Chip 'n Dale Rescue Rangers",
+        "data": 1990,
+        "desenvolvedora": "Capcom",
+        "consoles": "NES",
+        "descricao": "Jogo de plataforma",
+        "imagem": "imagens/chipndale.png"
+    },
+    {
+        "nome": "Snow Bros",
+        "data": 1990,
+        "desenvolvedora": "Toaplan",
+        "consoles": "Arcades",
+        "descricao": "Jogo de plataforma",
+        "imagem": "imagens/snowbros.png"
+    },
+    {
+        "nome": "Dr. Mario",
+        "data": 1990,
+        "desenvolvedora": "Nintendo",
+        "consoles": "NES e Game Boy",
+        "descricao": "Jogo de quebra-cabeça",
+        "imagem": "imagens/drmario.png"
+    },
+    {
+        "nome": "Spy vs. Spy",
+        "data": 1984,
+        "desenvolvedora": "First Star Software",
+        "consoles": "Atari, NES, Game Boy",
+        "descricao": "Jogo de ação e estratégia",
+        "imagem": "imagens/spyvsspy.png"
+    },
+    {
+        "nome": "Friday the 13th",
+        "data": 1989,
+        "desenvolvedora": "Atlus",
+        "consoles": "NES",
+        "descricao": "Jogo de ação e terror baseado no filme",
+        "imagem": "imagens/fridaythe13th.png"
+    }
+]
