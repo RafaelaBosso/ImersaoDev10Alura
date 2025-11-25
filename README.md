@@ -1,5 +1,5 @@
 # ImersaoDev10Alura
-Catálogo interativo de jogos retrô (anos 80 - 90) em estilo 8-bit. Desenvolvido durante a Imersão Dev da Alura com Google; feito com HTML, CSS e JavaScript
+Catálogo interativo de jogos retrô (anos 80 - 90) em estilo 8-bit. Desenvolvido durante a Imersão Dev da Alura com Google; feito com HTML, CSS e JavaScript.
 
 # 🎮 Jogos Retrô — Catálogo Interativo 
 
