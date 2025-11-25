@@ -64,9 +64,9 @@ function alternarModo() {
   body.classList.toggle("modo-escuro");
 
   if (body.classList.contains("modo-escuro")) {
-    botao.textContent = "Modo Pastel";
+    botao.textContent = "Modo Claro";
   } else {
-    botao.textContent = "Modo Noturno Retrô";
+    botao.textContent = "Modo Noturno";
   }
 }
 
@@ -74,3 +74,4 @@ function alternarModo() {
 window.addEventListener("DOMContentLoaded", () => {
   iniciarBusca();
 });
+
