@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Jogos Retro S2</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogos Retrô S2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
     <header>
-        <h1>Jogos Retro</h1>
-        <div>
-            <input type="text" id="busca" placeholder="digite o nome de um jogo">
-            <button id="botao-busca" onclick="iniciarBusca()">Buscar</button>
-            <button id="modo-noturno" onclick="alternarModo()">Modo Noturno</button>
-        </div>
+      <h1>Jogos Retrô</h1>
+      <div>
+        <input
+          type="text"
+          id="busca"
+          placeholder="Digite o nome de um jogo"
+          aria-label="Buscar jogo"
+          oninput="iniciarBuscaDebounced()"
+        />
+        <button id="botao-busca" type="button" onclick="iniciarBusca()">
+          Buscar
+        </button>
+        <button id="modo-noturno" type="button" onclick="alternarModo()">
+          Modo Noturno
+        </button>
+      </div>
     </header>
 
     <main>
-        <section class="card-container">
-
-        </section>
+      <section class="card-container" id="card-container"></section>
+      <p id="mensagem" class="mensagem"></p>
     </main>
 
     <footer class="footer">
-        <ul class="footer-links">
-            <li id="rafaela.oli.bosso@gmail.com" onclick="copiarEmail(this)" style="cursor: pointer;">E-mail Profissional</li>
-        </ul>
+      <ul class="footer-links">
+        <li
+          data-email="rafaela.oli.bosso@gmail.com"
+          onclick="copiarEmail(this)"
+          style="cursor: pointer"
+        >
+          E-mail Profissional
+        </li>
+      </ul>
     </footer>
 
     <script src="script.js"></script>
-
-</body>
-
+  </body>
 </html>
