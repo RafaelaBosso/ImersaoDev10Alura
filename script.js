@@ -1,77 +1,95 @@
-let cardContainer = document.querySelector(".card-container");
+const cardContainer = document.getElementById("card-container");
+const mensagem = document.getElementById("mensagem");
 let dados = [];
+let debounceTimer = null;
 
+// Função principal de busca
 async function iniciarBusca() {
-    let termoBusca = document.querySelector("#busca")?.value?.toLowerCase() || "";
+  const termoBusca =
+    document.querySelector("#busca")?.value?.toLowerCase().trim() || "";
 
-    // Carrega dados apenas uma vez
-    if (dados.length === 0) {
-        let resposta = await fetch("data.json");
-        dados = await resposta.json();
-    }
+  mensagem.textContent = "Carregando...";
+  cardContainer.innerHTML = "";
 
-    // Filtra resultados
-    let resultados = dados.filter(dado => {
-        return (
-            dado.nome.toLowerCase().includes(termoBusca) ||
-            dado.desenvolvedora.toLowerCase().includes(termoBusca) ||
-            dado.consoles.toLowerCase().includes(termoBusca) ||
-            dado.descricao.toLowerCase().includes(termoBusca)
-        );
-    });
+  // Carrega dados apenas uma vez
+  if (dados.length === 0) {
+    const resposta = await fetch("data.json");
+    dados = await resposta.json();
+  }
 
-    // Limpa os cards anteriores
-    cardContainer.innerHTML = "";
+  // Filtra resultados
+  const resultados = dados.filter((dado) =>
+    ["nome", "desenvolvedora", "consoles", "descricao"].some((campo) =>
+      dado[campo].toLowerCase().includes(termoBusca)
+    )
+  );
 
-    // Se houver resultados, renderiza-os
-    if (resultados.length > 0) {
-        renderizarCards(resultados);
-    } else {
-        cardContainer.innerHTML = `<p>Nenhum resultado encontrado para "<strong>${termoBusca}</strong>".</p>`;
-    }
+  // Renderiza resultados
+  mensagem.textContent = "";
+  cardContainer.innerHTML = "";
+
+  if (resultados.length > 0) {
+    renderizarCards(resultados);
+  } else {
+    mensagem.innerHTML = `Nenhum resultado encontrado para "<strong>${termoBusca}</strong>".`;
+  }
 }
 
+// Debounce para busca suave
+function iniciarBuscaDebounced() {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(iniciarBusca, 300);
+}
+
+// Renderiza os cards
 function renderizarCards(dados) {
-    for (let dado of dados) {
-        let article = document.createElement("article");
-        article.classList.add("card");
-        article.innerHTML = `
-            <img src="${dado.imagem}" alt="${dado.nome}" class="img-jogo">
-            <h2>${dado.nome}</h2>
-            <p><strong>Data de lançamento:</strong> ${dado.data}</p>
-            <p><strong>Desenvolvedora:</strong> ${dado.desenvolvedora}</p>
-            <p><strong>Consoles:</strong> ${dado.consoles}</p>
-            <p><strong>Descrição:</strong>${dado.descricao}</p>
-        `;
-        cardContainer.appendChild(article);
-    }
+  dados.forEach((dado) => {
+    const article = document.createElement("article");
+
+    const img = document.createElement("img");
+    img.src = dado.imagem;
+    img.alt = dado.nome;
+    img.classList.add("img-jogo");
+
+    const h2 = document.createElement("h2");
+    h2.textContent = dado.nome;
+
+    const data = document.createElement("p");
+    data.innerHTML = `<strong>Data de lançamento:</strong> ${dado.data}`;
+
+    const dev = document.createElement("p");
+    dev.innerHTML = `<strong>Desenvolvedora:</strong> ${dado.desenvolvedora}`;
+
+    const consoles = document.createElement("p");
+    consoles.innerHTML = `<strong>Consoles:</strong> ${dado.consoles}`;
+
+    const desc = document.createElement("p");
+    desc.innerHTML = `<strong>Descrição:</strong> ${dado.descricao}`;
+
+    article.append(img, h2, data, dev, consoles, desc);
+    cardContainer.appendChild(article);
+  });
 }
 
+// Copiar e-mail com feedback
 function copiarEmail(elemento) {
-    const email = elemento.id;
-    navigator.clipboard.writeText(email).then(() => {
-        alert('E-mail "' + email + '" copiado para a área de transferência!');
-    }).catch(err => {
-        console.error('Falha ao copiar o e-mail: ', err);
-        alert('Não foi possível copiar o e-mail.');
-    });
+  const email = elemento.dataset.email;
+  navigator.clipboard
+    .writeText(email)
+    .then(() => alert(`E-mail "${email}" copiado para a área de transferência!`))
+    .catch(() => alert("Não foi possível copiar o e-mail."));
 }
 
+// Alternar modo escuro
 function alternarModo() {
   const body = document.body;
   const botao = document.getElementById("modo-noturno");
 
   body.classList.toggle("modo-escuro");
-
-  if (body.classList.contains("modo-escuro")) {
-    botao.textContent = "Modo Claro";
-  } else {
-    botao.textContent = "Modo Noturno";
-  }
+  botao.textContent = body.classList.contains("modo-escuro")
+    ? "Modo Claro"
+    : "Modo Noturno";
 }
 
 // Exibe automaticamente os jogos ao abrir a página
-window.addEventListener("DOMContentLoaded", () => {
-  iniciarBusca();
-});
-
+window.addEventListener("DOMContentLoaded", iniciarBusca);
